@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html data-theme="cyberpunk">
+<head>
+  <meta charset="UTF-8">
+  <title>Abfahrten</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.52.0/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <h1 class="text-2xl text-center my-4">Abfahrten</h1>
+  <div class="overflow-x-auto">
+    <table class="table w-full">
+      <thead>
+        <tr>
+          <th class="border-b">Linie</th>
+          <th class="border-b">Abfahrtszeit</th>
+          <th class="border-b">Haltestelle</th>
+          <th class="border-b">Ziel</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{range .}}
+        <tr>
+          <td>{{.Line.Name}}</td>
+          <td>{{.When.Format "15:04"}}</td>
+          <td>{{.Stop.Name}}</td>
+          <td>{{.Destination.Name}}</td>
+        </tr>
+        {{end}}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
